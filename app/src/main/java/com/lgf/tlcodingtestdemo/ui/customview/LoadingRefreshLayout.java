@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.lgf.tlcodingtestdemo.R;
+import com.lgf.tlcodingtestdemo.utils.LogUtil;
 
 /**
  * Created by garment on 2018/2/24.
@@ -99,10 +100,17 @@ public class LoadingRefreshLayout extends LinearLayout {
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
+        float y = getY();
+        LogUtil.i(TAG, "onLayout y:" + y );
+        LogUtil.i(TAG, "onLayout t:" + t );
+        LogUtil.i(TAG, "onLayout b:" + b );
+
+
         if (changed && !hasLoaded) {
             headHeight = head.getHeight();
+            LogUtil.i(TAG, "onLayout headHeight:" + headHeight );
             headMarginLayoutParams = (MarginLayoutParams) head.getLayoutParams();
-            headMarginLayoutParams.topMargin = -headHeight;
+            headMarginLayoutParams.topMargin = (int)y - headHeight;
             hasLoaded = true;
         }
     }

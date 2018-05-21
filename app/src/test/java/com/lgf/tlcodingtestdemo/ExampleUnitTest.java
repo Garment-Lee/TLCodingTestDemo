@@ -1,5 +1,6 @@
 package com.lgf.tlcodingtestdemo;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -10,8 +11,17 @@ import static org.junit.Assert.*;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 public class ExampleUnitTest {
+
+    int i;
+
+    @Before
+    public void setUp(){
+        i = 2;
+    }
+
     @Test
     public void addition_isCorrect() throws Exception {
-        assertEquals(4, 2 + 2);
+        assertEquals(4, i);
+
     }
 }

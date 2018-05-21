@@ -59,62 +59,63 @@ public class CityGuideFragment extends BaseFragment implements LoadingRefreshLay
     @Override
     public void initData() {
         //首次进入页面加载新数据
-        LoadingContentBll.getInstance().getShowingCityGuideContent(UrlConfig.LOADING_CITY_GUIDE_CONTENT_URL, new Observer<ArrayList<ShowingContentBean>>() {
-            @Override
-            public void onSubscribe(Disposable d) {
-
-            }
-
-            @Override
-            public void onNext(ArrayList<ShowingContentBean> value) {
-                if (value != null && value.size() > 0){
-                    mContentBeanList.addAll(value);
-                    mRecyclerViewAdapter.notifyDataSetChanged();
-                }
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-
-            @Override
-            public void onComplete() {
-
-            }
-        });
+//        LoadingContentBll.getInstance().getShowingCityGuideContent(UrlConfig.LOADING_CITY_GUIDE_CONTENT_URL, new Observer<ArrayList<ShowingContentBean>>() {
+//            @Override
+//            public void onSubscribe(Disposable d) {
+//
+//            }
+//
+//            @Override
+//            public void onNext(ArrayList<ShowingContentBean> value) {
+//                if (value != null && value.size() > 0){
+//                    mContentBeanList.addAll(value);
+//                    mRecyclerViewAdapter.notifyDataSetChanged();
+//                }
+//            }
+//
+//            @Override
+//            public void onError(Throwable e) {
+//
+//            }
+//
+//            @Override
+//            public void onComplete() {
+//
+//            }
+//        });
     }
 
     @Override
     public void onRefresh() {
         //下滑加载更多
-        LoadingContentBll.getInstance().getShowingCityGuideContent(UrlConfig.LOADING_CITY_GUIDE_CONTENT_URL, new Observer<ArrayList<ShowingContentBean>>() {
-            @Override
-            public void onSubscribe(Disposable d) {
+//        LoadingContentBll.getInstance().getShowingCityGuideContent(UrlConfig.LOADING_CITY_GUIDE_CONTENT_URL, new Observer<ArrayList<ShowingContentBean>>() {
+//            @Override
+//            public void onSubscribe(Disposable d) {
+//
+//            }
+//
+//            @Override
+//            public void onNext(ArrayList<ShowingContentBean> value) {
+//                //加载完成，关闭加载提示
+//                mLoadingRefreshLayout.finishLoading();
+//                if (value != null && value.size() > 0){
+//                    mContentBeanList.addAll(value);
+//                    mRecyclerViewAdapter.notifyDataSetChanged();
+//                }
+//            }
+//
+//            @Override
+//            public void onError(Throwable e) {
+//                //加载失败，关闭加载提示
 
-            }
-
-            @Override
-            public void onNext(ArrayList<ShowingContentBean> value) {
-                //加载完成，关闭加载提示
                 mLoadingRefreshLayout.finishLoading();
-                if (value != null && value.size() > 0){
-                    mContentBeanList.addAll(value);
-                    mRecyclerViewAdapter.notifyDataSetChanged();
-                }
-            }
-
-            @Override
-            public void onError(Throwable e) {
-                //加载失败，关闭加载提示
-                mLoadingRefreshLayout.finishLoading();
-            }
-
-            @Override
-            public void onComplete() {
-
-            }
-        });
+//            }
+//
+//            @Override
+//            public void onComplete() {
+//
+//            }
+//        });
     }
 
     @Override

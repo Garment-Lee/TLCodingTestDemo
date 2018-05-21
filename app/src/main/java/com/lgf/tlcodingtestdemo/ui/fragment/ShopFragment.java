@@ -16,7 +16,7 @@ public class ShopFragment extends BaseFragment {
 
     @Override
     public int getLayoutId() {
-        return R.layout.fragment_city_guide;
+        return R.layout.fragment_shop;
     }
 
     @Override
