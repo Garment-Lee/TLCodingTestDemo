@@ -3,4 +3,8 @@
     <string name="pull_to_refresh">下拉刷新...</string>
     <string name="release_to_refresh">松开进行刷新...</string>
     <string name="doing_refresh">正在刷新中...</string>
+
+    <string name="city_guide_tab_name">CITY GUIDE</string>
+    <string name="shop_tab_name">SHOP</string>
+    <string name="eat_tab_name">EAT</string>
 </resources>

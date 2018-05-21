@@ -1,18 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.lgf.tlcodingtestdemo.ui.activity.MainActivity">
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/ll_tab">
 
-</android.support.constraint.ConstraintLayout>
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="30dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/city_guide_tab_name"
+                android:textSize="15sp"
+                android:layout_centerInParent="true"
+                android:id="@+id/tv_main_activity_city_guide"
+                android:textColor="@color/color_text_normal"/>
+            
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:id="@+id/indicator_city_guide_tab"
+                android:background="@color/color_indicator"
+                android:layout_alignParentBottom="true">
+            </View>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:id="@+id/rl_tab_two">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/shop_tab_name"
+                android:textSize="15sp"
+                android:layout_centerInParent="true"
+                android:id="@+id/tv_main_activity_shop"
+                android:textColor="@color/color_text_normal"/>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:id="@+id/indicator_shop_tab"
+                android:background="@color/color_indicator"
+                android:layout_alignParentBottom="true"
+                android:visibility="gone">
+            </View>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="30dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/eat_tab_name"
+                android:textSize="15sp"
+                android:layout_centerInParent="true"
+                android:id="@+id/tv_main_activity_eat"
+                android:textColor="@color/color_text_normal"/>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:id="@+id/indicator_eat_tab"
+                android:background="@color/color_indicator"
+                android:layout_alignParentBottom="true"
+                android:visibility="gone">
+            </View>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_line"
+        android:layout_marginTop="1dp"
+        android:layout_below="@id/ll_tab"
+        android:id="@+id/view_line">
+    </View>
+
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/vp_showing_content"
+        android:layout_below="@id/view_line">
+
+    </android.support.v4.view.ViewPager>
+
+</RelativeLayout>

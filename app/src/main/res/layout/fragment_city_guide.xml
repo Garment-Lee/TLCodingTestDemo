@@ -5,7 +5,8 @@
 
     <com.lgf.tlcodingtestdemo.ui.customview.LoadingRefreshLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/loading_refresh_layout_city_guide">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_city_guide"

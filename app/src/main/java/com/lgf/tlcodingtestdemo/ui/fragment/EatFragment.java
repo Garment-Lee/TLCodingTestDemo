@@ -8,8 +8,24 @@ import com.lgf.tlcodingtestdemo.base.BaseFragment;
  */
 
 public class EatFragment extends BaseFragment {
+
+    public static EatFragment getInstance(){
+        EatFragment eatFragment = new EatFragment();
+        return eatFragment;
+    }
+
     @Override
     public int getLayoutId() {
         return R.layout.fragment_city_guide;
+    }
+
+    @Override
+    public void initViews() {
+
+    }
+
+    @Override
+    public void initData() {
+
     }
 }

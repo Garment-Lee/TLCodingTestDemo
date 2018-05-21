@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
@@ -48,11 +47,9 @@ public class LoadingContentBll {
      * 从服务器中获取city guide的内容
      * @param url
      * @param observer
-     * @param errConsumer
      */
-    public void getShowingCityGuideContent(String url, Observer<ArrayList<ShowingContentBean>> observer, Consumer<Throwable> errConsumer){
-        loadingShowingContentService.loadingCityGuideContent(url).
-                doOnError(errConsumer)
+    public void getShowingCityGuideContent(String url, Observer<ArrayList<ShowingContentBean>> observer){
+        loadingShowingContentService.loadingCityGuideContent(url)
                 .map(new Function<ShowingContentRespBean, ArrayList<ShowingContentBean>>() {
                     @Override
                     public ArrayList<ShowingContentBean> apply(ShowingContentRespBean showingContentRespBean) throws Exception {
