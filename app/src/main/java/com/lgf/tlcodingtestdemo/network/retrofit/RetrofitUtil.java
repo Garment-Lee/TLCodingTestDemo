@@ -22,7 +22,7 @@ public class RetrofitUtil {
 
     private Retrofit retrofit;
 
-    public static final String BASE_URL = "";
+    public static final String BASE_URL = "http://test.lgf.com";
 
     private RetrofitUtil(){
         init();

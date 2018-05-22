@@ -14,24 +14,24 @@ import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by garment on 2018/5/20.
- * @description：消息加载业务逻辑管理类
  *
+ * @description：消息加载业务逻辑管理类
  */
 
-public class LoadingContentBll {
+public class LoadingContentBll implements ILoadingContent {
 
     private static LoadingContentBll instance;
 
     private LoadingShowingContentService loadingShowingContentService;
 
-    private LoadingContentBll(){
+    private LoadingContentBll() {
         initService();
     }
 
-    public static LoadingContentBll getInstance(){
-        if (instance == null){
-            synchronized (LoadingContentBll.class){
-                if (instance == null){
+    public static LoadingContentBll getInstance() {
+        if (instance == null) {
+            synchronized (LoadingContentBll.class) {
+                if (instance == null) {
                     instance = new LoadingContentBll();
                 }
             }
@@ -39,7 +39,7 @@ public class LoadingContentBll {
         return instance;
     }
 
-    private void initService(){
+    private void initService() {
         loadingShowingContentService = RetrofitUtil.getInstance().getRetrofit().create(LoadingShowingContentService.class);
     }
 
@@ -48,21 +48,21 @@ public class LoadingContentBll {
      * @param url
      * @param observer
      */
-    public void getShowingCityGuideContent(String url, Observer<ArrayList<ShowingContentBean>> observer){
+    @Override
+    public void getShowingCityGuideData(String url, Observer<ArrayList<ShowingContentBean>> observer) {
         loadingShowingContentService.loadingCityGuideContent(url)
                 .map(new Function<ShowingContentRespBean, ArrayList<ShowingContentBean>>() {
                     @Override
                     public ArrayList<ShowingContentBean> apply(ShowingContentRespBean showingContentRespBean) throws Exception {
-                        if (showingContentRespBean.errCode.equals("0")){
+                        if (showingContentRespBean.errCode.equals("0")) {
                             return showingContentRespBean.data;
                         } else {
                             return null;
                         }
                     }
                 })
-                .observeOn(Schedulers.io())
-                .subscribeOn(AndroidSchedulers.mainThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
                 .subscribe(observer);
     }
-
 }

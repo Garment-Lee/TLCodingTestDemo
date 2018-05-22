@@ -4,7 +4,6 @@ import android.animation.ValueAnimator;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -87,30 +86,37 @@ public class LoadingRefreshLayout extends LinearLayout {
 
     public LoadingRefreshLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
+        LogUtil.i(TAG, "LoadingRefreshLayout....");
         init(context);
     }
 
     private void init(Context context) {
-        head = LayoutInflater.from(context).inflate(R.layout.loading_head_layout, null, true);
-        statusTV = (TextView) head.findViewById(R.id.tv_loading_head);
-        setOrientation(VERTICAL);
-        addView(head, 0);
+
+        LogUtil.i(TAG, "init....");
+
+//        addView(head, 0);
     }
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
-        float y = getY();
-        LogUtil.i(TAG, "onLayout y:" + y );
-        LogUtil.i(TAG, "onLayout t:" + t );
-        LogUtil.i(TAG, "onLayout b:" + b );
-
 
         if (changed && !hasLoaded) {
+            LogUtil.i(TAG, "onLayout....");
+            head = getChildAt(0);
+            LogUtil.i(TAG, "init head:" + head);
+
+            statusTV = (TextView) head.findViewById(R.id.tv_loading_head);
+            LogUtil.i(TAG, "init statusTV:" + statusTV);
+
+            setOrientation(VERTICAL);
             headHeight = head.getHeight();
+            head.layout(l, t - headHeight, r, b);
             LogUtil.i(TAG, "onLayout headHeight:" + headHeight );
+            LogUtil.i(TAG, "onLayout head.getY:" + head.getY() );
+
             headMarginLayoutParams = (MarginLayoutParams) head.getLayoutParams();
-            headMarginLayoutParams.topMargin = (int)y - headHeight;
+            headMarginLayoutParams.topMargin = (int)head.getY();
             hasLoaded = true;
         }
     }

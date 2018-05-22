@@ -3,18 +3,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.lgf.tlcodingtestdemo.ui.customview.LoadingRefreshLayout
+    <com.lgf.tlcodingtestdemo.ui.customview.pulltorefreshlayout.PullToRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/loading_refresh_layout_city_guide">
 
-        <android.support.v7.widget.RecyclerView
+        <include layout="@layout/refresh_head"></include>
+
+        <com.lgf.tlcodingtestdemo.ui.customview.pulltorefreshlayout.PullableRecyclerView
             android:id="@+id/rv_city_guide"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        </android.support.v7.widget.RecyclerView>
+        </com.lgf.tlcodingtestdemo.ui.customview.pulltorefreshlayout.PullableRecyclerView>
 
-    </com.lgf.tlcodingtestdemo.ui.customview.LoadingRefreshLayout>
+        <include layout="@layout/load_more"></include>
+
+    </com.lgf.tlcodingtestdemo.ui.customview.pulltorefreshlayout.PullToRefreshLayout>
 
 </RelativeLayout>
